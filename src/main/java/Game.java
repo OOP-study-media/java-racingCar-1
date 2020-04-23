@@ -13,7 +13,7 @@ public class Game {
         System.out.println("실행 결과");
         while (times != 0) {
             for (Car car : cars) {
-                car.moveCars();
+                car.move();
                 Output.printCarResult(car);
             }
             times--;

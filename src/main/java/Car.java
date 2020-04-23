@@ -11,7 +11,7 @@ class Car {
         this.name = name;
     }
 
-    public void moveCars() {
+    public void move() {
         if (randomNumber() >= MIN_FORWARD) {
             position++;
         }
