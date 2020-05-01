@@ -3,6 +3,10 @@ import java.util.List;
 public class Output {
     private static final int LAST_COMMA_LOCATION = 2;
 
+    public static void printMessage(String message) {
+        System.out.println(message);
+    }
+
     public static void printWinner(List<Car> winners) {
         StringBuilder result = new StringBuilder();
         for (Car car : winners) {

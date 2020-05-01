@@ -11,13 +11,13 @@ class Car {
         this.name = name;
     }
 
-    public void move() {
-        if (randomNumber() >= MIN_FORWARD) {
+    public void move(int randomNumber) {
+        if (randomNumber >= MIN_FORWARD) {
             position++;
         }
     }
 
-    private int randomNumber() {
+    public static int randomNumber() {
         return new Random().nextInt(RANGE);
     }
 
