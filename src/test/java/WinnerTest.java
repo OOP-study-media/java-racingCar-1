@@ -7,11 +7,12 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class WinnerTest {
-    private List<Car> cars;
+    private List<Car> winners;
 
     @BeforeEach
     void setUp() {
-        cars = new ArrayList<>();
+        // given
+        List<Car> cars = new ArrayList<>();
 
         cars.add(new Car("은정1"));
         cars.add(new Car("은정2"));
@@ -19,6 +20,7 @@ public class WinnerTest {
         cars.add(new Car("은정4"));
         cars.add(new Car("은정5"));
 
+        // when
         cars.get(0).move(5);
         cars.get(0).move(5);
         cars.get(0).move(5);
@@ -30,15 +32,19 @@ public class WinnerTest {
         cars.get(2).move(3);
         cars.get(2).move(3);
         cars.get(2).move(3);
+
+        winners = Winner.getWinners(cars);
     }
 
     @Test
     void 우승자_잘_포함됐는지_테스트() {
-        assertThat(Winner.getWinners(cars)).extracting("name").contains("은정1");
+        // then
+        assertThat(winners).extracting("name").contains("은정1");
     }
 
     @Test
     void 우승자_목록_개수_잘_나오는지_테스트() {
-        assertThat(Winner.getWinners(cars).size()).isEqualTo(1);
+        // then
+        assertThat(winners.size()).isEqualTo(1);
     }
 }

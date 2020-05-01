@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Program {
@@ -32,7 +33,7 @@ public class Program {
         for (String name : names) {
             cars.add(new Car(name));
         }
-        return cars;
+        return Collections.unmodifiableList(cars);
     }
 
     private static void moveCars(List<Car> cars) {

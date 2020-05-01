@@ -11,6 +11,7 @@ public class ValidatorTest {
 
     @BeforeEach
     void setUp() {
+        // given
         names = new ArrayList<>();
         names.add("1");
         names.add("12");
@@ -21,28 +22,58 @@ public class ValidatorTest {
 
     @Test
     void 이름_1이상_5이하일때_테스트() {
-        assertThat(Validator.checkNameLength(names)).isEqualTo(true);
+        // when
+        boolean checkNameLength = Validator.checkNameLength(names);
+
+        // then
+        assertThat(checkNameLength).isEqualTo(true);
     }
 
     @Test
     void 이름_6자_이상일때_테스트() {
+        // given
         names.add("123456");
-        assertThat(Validator.checkNameLength(names)).isEqualTo(false);
+
+        // when
+        boolean checkNameLength = Validator.checkNameLength(names);
+
+        // then
+        assertThat(checkNameLength).isEqualTo(false);
     }
 
     @Test
     void 이름_빈칸일때_테스트() {
+        // given
         names.add("");
-        assertThat(Validator.checkNameLength(names)).isEqualTo(false);
+
+        // when
+        boolean checkNameLength = Validator.checkNameLength(names);
+
+        // then
+        assertThat(checkNameLength).isEqualTo(false);
     }
 
     @Test
     void 횟수_숫자일때_테스트() {
-        assertThat(Validator.checkTimes("5")).isEqualTo(true);
+        // given
+        String times = "5";
+
+        // when
+        boolean checkTimes = Validator.checkTimes(times);
+
+        // then
+        assertThat(checkTimes).isEqualTo(true);
     }
 
     @Test
     void 횟수_숫자_아닐때_테스트() {
-        assertThat(Validator.checkTimes("ㅎㅎ")).isEqualTo(false);
+        // given
+        String times = "ㅎㅎ";
+
+        // when
+        boolean checkTimes = Validator.checkTimes(times);
+
+        // then
+        assertThat(checkTimes).isEqualTo(false);
     }
 }
