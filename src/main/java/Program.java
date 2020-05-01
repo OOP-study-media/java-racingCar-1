@@ -10,7 +10,7 @@ public class Program {
         List<String> names = Input.inputNames();
         String times = Input.inputTimes();
 
-        if (Validator.checkNameLength(names) || Validator.checkTimes(times)) {
+        if (!Validator.checkNameLength(names) || !Validator.checkTimes(times)) {
             return;
         }
         playGame(makeCars(names), Integer.parseInt(times));
