@@ -7,6 +7,9 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class WinnerTest {
+    private static final int MOVE = 4;
+    private static final int STAY = 3;
+
     private List<Car> winners;
 
     @BeforeEach
@@ -21,19 +24,25 @@ public class WinnerTest {
         cars.add(new Car("은정5"));
 
         // when
-        cars.get(0).move(5);
-        cars.get(0).move(5);
-        cars.get(0).move(5);
+        cars.get(0).move(MOVE);
+        cars.get(0).move(MOVE);
+        cars.get(0).move(MOVE);
 
-        cars.get(1).move(5);
-        cars.get(1).move(5);
-        cars.get(1).move(3);
+        cars.get(1).move(MOVE);
+        cars.get(1).move(MOVE);
+        cars.get(1).move(STAY);
 
-        cars.get(2).move(3);
-        cars.get(2).move(3);
-        cars.get(2).move(3);
+        cars.get(2).move(STAY);
+        cars.get(2).move(STAY);
+        cars.get(2).move(STAY);
 
         winners = Winner.getWinners(cars);
+    }
+
+    @Test
+    void 위치_최댓값_잘_계산되는지_테스트() {
+        // then
+        assertThat(winners).extracting("position").contains(3);
     }
 
     @Test

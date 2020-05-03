@@ -1,7 +1,4 @@
-import java.util.Random;
-
 class Car {
-    private static final int RANGE = 10;
     private static final int MIN_FORWARD = 4;
 
     private final String name;
@@ -15,10 +12,6 @@ class Car {
         if (randomNumber >= MIN_FORWARD) {
             position++;
         }
-    }
-
-    public static int randomNumber() {
-        return new Random().nextInt(RANGE);
     }
 
     public boolean isMaxPosition(int max) {
